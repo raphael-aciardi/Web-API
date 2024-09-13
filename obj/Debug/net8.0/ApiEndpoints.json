@@ -1,0 +1,34 @@
+[
+  {
+    "ContainingType": "Web_API.Controllers.FilmeController",
+    "Method": "AddMovie",
+    "RelativePath": "Filme",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "filmeDto",
+        "Type": "Web_API.Data.Dtos.Filme.CreateFilmeDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web_API.Controllers.FilmeController",
+    "Method": "RecuperaFilmePorId",
+    "RelativePath": "Filme/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
