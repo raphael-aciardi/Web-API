@@ -20,7 +20,7 @@ public class FilmeController: ControllerBase
     }
 
     [HttpPost]
-    public IActionResult AddMovie([FromBody] CreateFilmeDto filmeDto)
+    public IActionResult AdicionaFilme([FromBody] CreateFilmeDto filmeDto)
     {
         Filme filme = _mapper.Map<Filme>(filmeDto);
         _context.Filmes.Add(filme);

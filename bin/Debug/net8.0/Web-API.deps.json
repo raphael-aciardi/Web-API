@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v8.0": {
       "Web-API/1.0.0": {
         "dependencies": {
+          "AutoMapper": "12.0.0",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.0",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.10",
           "Microsoft.EntityFrameworkCore": "6.0.10",
