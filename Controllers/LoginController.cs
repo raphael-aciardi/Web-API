@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Web_API.Data;
 using Web_API.Data.Dtos.Login;
-using Web_API.Services;
+using Web_API.Models;
 namespace Web_API.Controllers
 {
     [ApiController]
@@ -11,31 +11,30 @@ namespace Web_API.Controllers
     {
         private readonly FilmeContext _context;
         private readonly IMapper _mapper;
-        private readonly ILoginService _userService;
 
-        public LoginController(FilmeContext context, IMapper mapper, ILoginService userService)
+
+        public LoginController(FilmeContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
-            _userService = userService;  // Injeção de dependência para o serviço de autenticação
         }
 
         [HttpPost]
-        public IActionResult Login([FromBody] LoginDto loginDto)
+        public IActionResult Login([FromBody] LoginDto loginDto )
         {
-            // Verifica se os dados de entrada (DTO) são válidos
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+    
 
-            // Chama o serviço de autenticação
-            var user = _userService.Authenticate(loginDto.Email, loginDto.Password);
+            // Busca o usuário pelo email
+            var usuario = _context.Usuarios.FirstOrDefault(u => u.Email == loginDto.Email && u.Senha == loginDto.Password);
 
-            // Retorna "Unauthorized" se o usuário não for encontrado
-            if (user == null)
+            // Verifica se o usuário foi encontrado e se a senha está correta
+            if (usuario == null || usuario.Senha != loginDto.Password)
+            {
                 return Unauthorized(new { message = "Email ou senha inválidos" });
+            }
 
             // Se as credenciais forem válidas, retorna uma resposta de sucesso
-            return Ok(new { message = "Login realizado com sucesso", user });
+            return Ok(new { message = "Login realizado com sucesso", user = usuario });
         }
     }
 }
