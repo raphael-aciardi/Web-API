@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Web_API.Data.Dtos.Filme;
 using Web_API.Data.Dtos.Usuario;
 using Web_API.Models;
 
