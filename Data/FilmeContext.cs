@@ -9,5 +9,23 @@ namespace Web_API.Data
         public DbSet<Filme> Filmes { get; set; }
 
         public DbSet<Usuario> Usuarios { get; set; }
+
+        public DbSet<FilmeFavorito> FilmesFavoritos { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<FilmeFavorito>()
+                .HasKey(ff => new { ff.UsuarioId, ff.FilmeId });
+
+            modelBuilder.Entity<FilmeFavorito>()
+                .HasOne(ff => ff.Usuario)
+                .WithMany(u => u.FilmesFavoritos)
+                .HasForeignKey(ff => ff.UsuarioId);
+
+            modelBuilder.Entity<FilmeFavorito>()
+                .HasOne(ff => ff.Filme)
+                .WithMany(f => f.FilmesFavoritos)
+                .HasForeignKey(ff => ff.FilmeId);
+        }
     }
 }

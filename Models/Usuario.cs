@@ -17,4 +17,6 @@ public class Usuario
 
     [Required]
     public string Senha { get; set; }
+
+    public virtual ICollection<FilmeFavorito>? FilmesFavoritos { get; set; }
 }
