@@ -21,4 +21,7 @@ public int Duracao { get; set; }
 
 [Required]
 public string Caminho { get; set; }
+
+public virtual ICollection<FilmeFavorito>? FilmesFavoritos { get; set; }
+
 }
