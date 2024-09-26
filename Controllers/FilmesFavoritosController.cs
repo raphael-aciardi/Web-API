@@ -48,6 +48,38 @@ namespace Web_API.Controllers
 
             return Ok("Filme adicionado aos favoritos com sucesso.");
         }
+
+        [HttpGet("{usuarioId}")]
+        public async Task<IActionResult> GetFilmesFavoritos(int usuarioId)
+        {
+            // Busca os filmes favoritos do usuário específico
+            var filmesFavoritos = await _context.FilmesFavoritos
+                .Where(ff => ff.UsuarioId == usuarioId)
+                .Include(ff => ff.Filme) // Inclui detalhes do filme
+                .ToListAsync();
+
+            if (filmesFavoritos == null || !filmesFavoritos.Any())
+            {
+                return NotFound("Nenhum filme favorito encontrado para este usuário.");
+            }
+
+            // Retorna os detalhes dos filmes favoritos
+            var resultado = filmesFavoritos.Select(ff => new
+            {
+                ff.FilmeId,
+                ff.Filme.Titulo,
+                ff.Filme.Genero,
+                ff.Filme.Duracao,
+                ff.Filme.Caminho
+                
+           // Supondo que a entidade Filme tem uma propriedade Titulo
+                                  // Adicione outras propriedades que deseja retornar
+            }).ToList();
+
+            return Ok(resultado);
+        }
     }
+
+
 
 }

@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "Web_API.Controllers.FilmesFavoritosController",
+    "Method": "GetFilmesFavoritos",
+    "RelativePath": "api/FilmesFavoritos/{usuarioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usuarioId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Web_API.Controllers.FilmesFavoritosController",
     "Method": "AddFilmeFavorito",
     "RelativePath": "api/FilmesFavoritos/add",
     "HttpMethod": "POST",
