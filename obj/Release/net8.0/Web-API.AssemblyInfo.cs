@@ -11,7 +11,13 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.AspNetCore.Mvc.ApplicationParts.ApplicationPartAttribute("Swashbuckle.AspNetCore.SwaggerGen")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Web-API")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e95081ff5c17ff519ec8940df2c18467d008f583")]
+[assembly: System.Reflection.AssemblyProductAttribute("Web-API")]
+[assembly: System.Reflection.AssemblyTitleAttribute("Web-API")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Gerado pela classe WriteCodeFragment do MSBuild.
 

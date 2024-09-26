@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Web_API.Data;
-using Web_API.Data.Dtos.Filme;
 using Web_API.Data.Dtos.Usuario;
 using Web_API.Models;
 
